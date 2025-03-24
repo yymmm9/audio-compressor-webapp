@@ -243,7 +243,7 @@ const useDropzone = <TUploadRes, TUploadError = string>(
   }, [fileStatuses, rootError]);
 
   const _uploadFile = useCallback(
-    async (file: File, id: string, tries = 0) => {
+    async (file: File, id: string, tries = 0): Promise<void> => {
       const result = await pOnDropFile(file);
 
       if (result.status === "error") {
